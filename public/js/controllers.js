@@ -115,6 +115,47 @@
       $scope.isActive = function (tab) {
         return tab === $scope.tab;
       };
+    }]).controller('MapCtrl', ['MarkerCreatorService', '$routeParams', '$scope', function (MarkerCreatorService, $routeParams, $scope) {
+        var name2 = $routeParams.name;
+         $scope.address = name2;
+         console.log($scope.address);
+
+
+          
+        $scope.map = {
+            center: {
+                latitude: -0.2006319,
+                longitude: -78.5040844
+            },
+            zoom:4,
+            markers: [],
+            control: {},
+            options: {
+                scrollwheel: false
+            }
+        };
+
+        //$scope.map.markers.push($scope.ecuadorMarker);
+
+        MarkerCreatorService.createByAddress($scope.address, function(marker) {
+                    $scope.map.markers.push(marker);
+                    refresh(marker);
+                });
+        $scope.addAddress = function() {
+            var address = $scope.address;
+            if (address !== '') {
+                MarkerCreatorService.createByAddress(address, function(marker) {
+                    $scope.map.markers.push(marker);
+                    refresh(marker);
+                });
+            }
+        };
+
+        function refresh(marker) {
+            $scope.map.control.refresh({latitude: marker.latitude,
+                longitude: marker.longitude});
+        }
+
     }]);
 
 })(_);

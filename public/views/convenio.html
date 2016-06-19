@@ -13,7 +13,15 @@
         </div>
         <div class="row">
           <div class="col-md-6">
-            <convenio-image></convenio-image>
+            <div ng-controller="MapCtrl" class="avatar center-block"style="
+    height: 500px">
+        <div class="map_container" >
+            <google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" control="map.control">
+                <markers models="map.markers" coords="'self'" options="'options'" isLabel='true'>
+                </markers>
+            </google-map>
+        </div>  
+    </div>
           </div>
           <!-- Tabs -->
           <div class="col-md-6" ng-controller="TabsController">
