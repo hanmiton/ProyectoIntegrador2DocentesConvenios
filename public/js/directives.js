@@ -8,14 +8,24 @@
           templateUrl: 'partials/ingeniero-name.html'
         };
       })
-
+    .directive('convenioName', function () {
+        return {
+          restrict: 'E',
+          templateUrl: 'partials/convenio-name.html'
+        };
+      })
     .directive('ingenieroImage', function () {
         return {
           restrict: 'E',
           templateUrl: 'partials/ingeniero-image.html'
         };
       })
-
+    .directive('convenioImage', function () {
+        return {
+          restrict: 'E',
+          templateUrl: 'partials/convenio-image.html'
+        };
+      })
     .directive('ingenieroData', function () {
         return {
           restrict: 'E',
@@ -48,6 +58,13 @@
       return {
         retrict: 'E',
         templateUrl: 'partials/ingeniero-card.html'
+      }
+    })
+
+    .directive('convenioCard', function () {
+      return {
+        retrict: 'E',
+        templateUrl: 'partials/convenio-card.html'
       }
     })
 

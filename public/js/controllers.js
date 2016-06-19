@@ -43,7 +43,48 @@
       }
 
     }])
+    .controller('ConvedexController', ['$rootScope', '$scope', '$routeParams', 'Convenio', function ($rootScope, $scope, $routeParams, Convenio) {
+      
+      var type = $routeParams.type;
+       var convenios = [];
 
+      $rootScope.title = "";
+
+      if (type) {
+        $scope.type = type;
+
+        $scope.convenios = convenios = Convenio.query({ type: type.toLowerCase() }, function (data) {
+           
+          $scope.groupped = partition(data, 4);
+        });
+      } else {
+        $scope.convenios = convenios = Convenio.query(function (data) {
+         
+          $scope.groupped = partition(data, 4);
+        });
+      }
+
+      $scope.search = function () {
+        var result = convenios;
+        if ($scope.searchTerm) {
+          result = convenios.filter(function (convenio) {
+            var name = convenio && convenio.name || "";
+
+            return name.toLowerCase().indexOf($scope.searchTerm.toLowerCase()) !== -1;
+          });
+        }
+
+        $scope.convenios = result;
+        $scope.groupped = partition(result, 4);
+      };
+
+      function partition(data, n) {
+        return _.chain(data).groupBy(function (element, index) {
+          return Math.floor(index / n);
+        }).toArray().value();
+      }
+
+    }])
     .controller('IngenieroController', ['$rootScope', '$scope', '$routeParams', 'Ingeniero', function ($rootScope, $scope, $routeParams, Ingeniero) {
        var name = $routeParams.name;
       //$scope.ingeniero = {};

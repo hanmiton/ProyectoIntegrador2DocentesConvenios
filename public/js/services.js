@@ -5,6 +5,9 @@
         return $resource('/api/ingenieros/:name');
      }])
 
+        .factory('Convenio', ['$resource', function ($resource) {
+        return $resource('/api/convenios/:name');
+     }])
       .factory('solicitudesService', ['$window', function ($window) {
        var localStorage = $window.localStorage;
     

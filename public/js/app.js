@@ -12,6 +12,10 @@
     app.config(['$routeProvider', function ($routeProvider) {
 
     $routeProvider
+      .when('/convenios', {
+        templateUrl: 'views/convedex.html',
+        controller: 'ConvedexController'
+      })
       .when('/', {
         templateUrl: 'views/ingedex.html',
         controller: 'IngedexController'
