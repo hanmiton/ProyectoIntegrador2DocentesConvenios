@@ -1,0 +1,33 @@
+<!-- convenio -->
+      <div ng-if="!convenio">
+        <div class="page-header">
+          <h1>Error</h1>
+        </div>
+        <div class="alert alert-danger">
+          <p>Convenio no encontrado</p>
+        </div>
+      </div>
+      <div ng-if="convenio">
+        <div class="page-header">
+          <convenio-name></convenio-name>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <convenio-image></convenio-image>
+          </div>
+          <!-- Tabs -->
+          <div class="col-md-6" ng-controller="TabsController">
+            <ul class="nav nav-tabs nav-justified">
+               <li ng-class="{ active:isActive(1) }"><a ng-click="selectTab(1)">Información</a></li>
+            </ul>
+            <div class="tab-content">
+              <!-- Informacion -->
+              <div ng-show="isActive(1)">
+                <convenio-data></convenio-data>
+              </div>
+            </div>
+          </div>
+          <!-- /tabs -->
+        </div>
+      </div>
+      <!-- /convenio -->

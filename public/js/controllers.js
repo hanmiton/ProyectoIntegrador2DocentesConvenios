@@ -95,6 +95,16 @@
           });
     }])
 
+    .controller('ConvenioController', ['$rootScope', '$scope', '$routeParams', 'Convenio', function ($rootScope, $scope, $routeParams, Convenio) {
+       var name = $routeParams.name;
+      //$scope.ingeniero = {};
+        Convenio.get({ name: name }, function (convenio) {
+           $rootScope.title = convenio.name;
+          $scope.convenio = convenio;
+      
+          });
+    }])
+
     .controller('TabsController', ['$scope', function ($scope) {
       $scope.tab = 1;
 

@@ -20,6 +20,10 @@
         templateUrl: 'views/convedex.html',
         controller: 'ConvedexController'
       })
+      .when('/convenios/convenio/:name', {
+        templateUrl: 'views/convenio.html',
+        controller: 'ConvenioController',
+      })
       .when('/', {
         templateUrl: 'views/ingedex.html',
         controller: 'IngedexController'

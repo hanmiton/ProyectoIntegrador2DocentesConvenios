@@ -32,7 +32,12 @@
           templateUrl: 'partials/ingeniero-data.html'
         };
       })
-
+      .directive('convenioData', function () {
+        return {
+          restrict: 'E',
+          templateUrl: 'partials/convenio-data.html'
+        };
+      })
      .directive('ingenieroStats', function () {
         return {
           restrict: 'E',
