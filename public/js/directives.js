@@ -53,7 +53,12 @@
         templateUrl: 'partials/ingeniero-type.html'
       };
     })
-
+    .directive('convenioType', function () {
+      return {
+        restrict: 'E',
+        templateUrl: 'partials/convenio-type.html'
+      };
+    })
     .directive('ingenieroCard', function () {
       return {
         retrict: 'E',

@@ -16,6 +16,10 @@
         templateUrl: 'views/convedex.html',
         controller: 'ConvedexController'
       })
+      .when('/convenios/:type', {
+        templateUrl: 'views/convedex.html',
+        controller: 'ConvedexController'
+      })
       .when('/', {
         templateUrl: 'views/ingedex.html',
         controller: 'IngedexController'
